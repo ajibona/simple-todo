@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-body{
-  overflow: hidden;
-}
-
 header{
   width: 90%;
   max-width: 900px;
@@ -78,9 +74,11 @@ h2{
 body{
   background-color: #1b1b1b;
   font-family: "Poppins", serif;
+  overflow-x: hidden;
 }
 
 button, input{
+  border-radius: 0;
   font-family: "Poppins", serif;
 }
 
@@ -165,6 +163,7 @@ button:hover{
     background-color: #1b1b1b;
     z-index: 1;
     transition: all .2s ease-in;
+    display: none;
   }
 
   .close-nav{
@@ -196,6 +195,7 @@ button:hover{
 
   .activate-nav{
     left: 0;
+    display: block;
   }
 }
 
