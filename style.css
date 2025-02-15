@@ -96,13 +96,14 @@ button, input{
   padding: 10px 10px;
   outline: none;
   border: none;
+  font-size: 1.2rem;
 }
 
 .error{
   color: tomato;
   position: absolute;
-  right: 80px;
-  font-size: .8rem;
+  right: 100px;
+  font-size: .9rem;
   font-style: italic;
   display: none;
 }
@@ -114,6 +115,8 @@ button{
   background-color: tomato;
   cursor: pointer;
   transition: background-color .1s ease-in;
+  font-size: 1.2rem;
+  color: #1b1b1b;
 }
 
 button:hover{
@@ -143,12 +146,20 @@ button:hover{
   transition: background-color .1s ease-in;
 }
 
-.close-btn:hover{
+.close-btn:is(:hover, :focus, :focus-visible){
   background-color: #80808052;
 }
 
 .menu-item{
   display: none;
+}
+
+.todo__data--list p{
+  font-size: 1.2rem;
+}
+
+.close-btn{
+  font-size: 1.1rem;
 }
 
 
@@ -196,6 +207,19 @@ button:hover{
   .activate-nav{
     left: 0;
     display: block;
+  }
+
+  .input__text--data{
+    font-size: 1rem;
+  }
+
+  button{
+    font-size: 1rem;
+  }
+
+  .error{
+    font-size: .8rem;
+    right: 80px;
   }
 }
 
