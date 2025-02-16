@@ -1,67 +1,51 @@
-const inputData = document.querySelector('.js__input');
-const addBtn = document.querySelector('.js__button');
-const error = document.querySelector('.error')
+const inputData = document.querySelector(".js__input");
+const addBtn = document.querySelector(".js__button");
+const error = document.querySelector(".error");
+
+const listContainer = document.querySelector(".list__container--data");
 
 //navigation
-const menuBtn = document.querySelectorAll('.js__menu');
-const rightNav = document.querySelector('.js__right--nav');
+const menuBtn = document.querySelectorAll(".js__menu");
+const rightNav = document.querySelector(".js__right--nav");
 
-menuBtn.forEach((menuIcon)=>{
-  menuIcon.addEventListener('click', ()=>{
-    rightNav.classList.toggle('activate-nav')
-  
-    console.log(rightNav)
-  })
-})
+menuBtn.forEach((menuIcon) => {
+  menuIcon.addEventListener("click", () => {
+    rightNav.classList.toggle("activate-nav");
+  });
+});
 
+addBtn.addEventListener("click", () => {
+  if (inputData.value !== "") {
+    error.style.display = "none";
 
-const todoList = [{
-  todoName: 'wash dishes',
-  close: '<i class="ri-close-line close-btn">'
-  },
-  {
-    todoName: 'Play football',
-    close: '<i class="ri-close-line close-btn">'
+    let li = document.createElement("li");
+    li.innerHTML = `${inputData.value} <i class="ri-close-line close-btn" onclick="closeElement(this)"></i>`;
+    listContainer.appendChild(li);
+  } else {
+    setTimeout(() => {
+      error.style.display = "block";
+    }, 100);
+
+    setTimeout(() => {
+      error.style.display = "none";
+    }, 3000);
   }
 
-]
+  inputData.value = "";
+  saveData();
+});
 
-addBtn.addEventListener('click', ()=>{
-  if(inputData.value !== ''){
-    textData();
-     error.style.display = 'none'
-  }else{
-    setTimeout(()=>{
-      error.style.display = 'block'
-    },100)
-
-    setTimeout(()=>{
-      error.style.display = 'none'
-    }, 3000) 
-  }
-
-
-})
-
-
-function textData(){
-  const inputValue = inputData.value
-
-  todoList.push(inputValue)
-
-  console.log(todoList)
-
-  inputData.value = '';
-
-  todoListData();
+function closeElement(button) {
+  button.parentElement.remove();
+  saveData();
 }
 
-function todoListData(){
-  todoList.forEach((todo)=>{
-    let htmlDisplay = 
-    `<div class="todo__data--list">
-      <p>${todoList.todoName}</p>
-      <span>${todoList.close}</i></span>
-    </div>`
-  })
+function saveData(){
+  localStorage.setItem("data", listContainer.innerHTML)
 }
+
+function showData(){
+  listContainer.innerHTML = localStorage.getItem("data")
+}
+
+showData();
