@@ -26,6 +26,10 @@ a{
   color: #fff;
 }
 
+.left__navigation{
+  z-index: 10;
+}
+
 .right__navigation ul{
   display: flex;
   align-items: center;
@@ -96,7 +100,7 @@ button, input{
   padding: 10px 10px;
   outline: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .error{
@@ -115,7 +119,7 @@ button{
   background-color: tomato;
   cursor: pointer;
   transition: background-color .1s ease-in;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #1b1b1b;
 }
 
@@ -134,7 +138,7 @@ button:hover{
   gap: 20px;
 }
 
-.todo__data--list{
+.list__container--data li{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,20 +159,25 @@ button:hover{
 }
 
 .todo__data--list p{
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .close-btn{
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
+.list__container--data{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 
 @media (max-width: 700px){
   .right__navigation{
     position: absolute;
     top: 0;
-    left: 900px;
+    left: 0;
     height: 100vh;
     width: 100%;
     background-color: #1b1b1b;
@@ -181,8 +190,11 @@ button:hover{
     display: block;
     color: #fff;
     float: right;
-    margin-top: 40px;
-    font-size: 2rem;
+    margin-top: 20px;
+  }
+
+  .close-nav .close-btn{
+    font-size: 2.5rem;
   }
 
   .right__navigation ul{
@@ -196,7 +208,7 @@ button:hover{
 
   .menu-nav{
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
   }
 
